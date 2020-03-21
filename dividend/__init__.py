@@ -1,0 +1,1 @@
+from dividend.main import search_stock
