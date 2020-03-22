@@ -8,10 +8,6 @@ class Screener:
     self.page = 1
     self.total_records = 0
     self._filters = filters
-    #print(self._filters)
-    #response["last_price"] = 15
-    #print(response)
-    #print(self._scrape_table_func(response))
     self.data = self._search_screener()
 
 

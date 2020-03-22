@@ -3,6 +3,7 @@ import requests
 import asyncio
 import aiohttp
 from aiohttp import ClientSession
+from dividend.errors import Non200Response, BadRequest
 
 
 class AsyncRequests:
@@ -12,25 +13,27 @@ class AsyncRequests:
     self.scrape_func = scrape_func
     self._total_records = 0
     self.records = None
+    self.url = "https://www.dividend.com/api/data_set"
     self._pages_to_request = self._initial_request()
+    
 
   def _initial_request(self):
     try:
-      response = requests.post(url="https://www.dividend.com/api/data_set", json=self.payload)
+      response = requests.post(url=self.url, json=self.payload)
+      if response.status_code not in [200]:
+        raise Non200Response(self.url)
       total =  int(response.json().get('meta', {}).get('total_pages', 1))
       if total > 200:
         return 200
       return total
     except Exception as e:
-      print(e)
-      return 1
+      raise BadRequest(str(e))
 
   def scrape(self, response):
     results = []
     try:
       for equity in response["data"]:
         parsed_response = self.scrape_func(equity)
-        #print(parsed_response)
         self._total_records += 1 
         results.append(parsed_response)
       return results
@@ -58,5 +61,5 @@ class AsyncRequests:
         #print(json.dumps(results, indent=4, sort_keys=True))
   def run(self):
     run_async = asyncio.get_event_loop()
-    run_async.run_until_complete(self.make_requests(url='https://www.dividend.com/api/data_set', payload=self.payload))
+    run_async.run_until_complete(self.make_requests(url=self.url, payload=self.payload))
     return self.records
