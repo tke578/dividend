@@ -1,5 +1,5 @@
-from parsers.parse_table import ParseTable
-from async_requests import AsyncRequests
+from dividend.parsers.parse_table import ParseTable
+from dividend.async_requests import AsyncRequests
 
 class Screener:
   def __init__(self, table='dividend-growth', **filters):
@@ -33,3 +33,7 @@ class Screener:
     self.total_records = async_connector._total_records
     
     return async_connector_responses
+
+  @classmethod
+  def test(cls):
+    return 'Hello World'
