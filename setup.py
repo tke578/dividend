@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(name='dividend',
 	  packages=['dividend', 'dividend.parsers'],
-      version='0.1',
+      version='1.0.0',
       description='Unofficail API for Dividend.com',
       url='http://github.com/storborg/funniest',
       author='Andrew Garcia',

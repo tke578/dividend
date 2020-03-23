@@ -9,4 +9,5 @@ class ParseTable:
       "dividend-growth": DividendGrowth,
       "attributes": Attributes
     }
+
     return parsers[table_view].parse

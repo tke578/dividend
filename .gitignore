@@ -1,2 +1,4 @@
 *.pyc
 dividend.egg-info
+/build
+/dist
