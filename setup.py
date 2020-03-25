@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setup(name='dividend',
 	    packages=['dividend', 'dividend.parsers'],
       version='1.0.0',
-      description='Unofficial API for Dividend.com',
+      description='The Unofficial API for Dividend.com',
       long_description=long_description,
       long_description_content_type="text/markdown",
       url='http://github.com/tke578/dividend',
