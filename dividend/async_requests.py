@@ -58,7 +58,6 @@ class AsyncRequests:
         results = await asyncio.gather(*tasks)
         self.records = [ equities for sub_list in results for equities in sub_list ]
         
-        #print(json.dumps(results, indent=4, sort_keys=True))
   def run(self):
     run_async = asyncio.get_event_loop()
     run_async.run_until_complete(self.make_requests(url=self.url, payload=self.payload))

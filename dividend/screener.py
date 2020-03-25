@@ -3,7 +3,6 @@ from dividend.async_requests import AsyncRequests
 
 class Screener:
   def __init__(self, table='dividend-growth', filters={}):
-    import pdb; pdb.set_trace()
     self.table = table
     self._scrape_table_func = ParseTable().parsers(table)
     self.page = 1
