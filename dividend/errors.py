@@ -6,4 +6,9 @@ class Non200Response(Exception):
 class BadRequest(Exception):
 	"""Bad Requests"""
 	def __init__(self, error_msg):
-		super(BadRequest).__init__(f'Something bad happened {error_msg}')
+		super(BadRequest, self).__init__(f'{error_msg}')
+
+class InvalidChoice(Exception):
+	"""Invalid Choices used in table view"""
+	def __init__(self, msg):
+		super(InvalidChoice, self).__init__(f'{msg}')

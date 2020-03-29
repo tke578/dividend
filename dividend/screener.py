@@ -1,5 +1,7 @@
 from dividend.parsers.parse_table import ParseTable
 from dividend.async_requests import AsyncRequests
+from dividend.errors import BadRequest
+
 
 class Screener:
   def __init__(self, table='dividend-growth', filters={}):
@@ -12,6 +14,9 @@ class Screener:
 
 
   def _payload(self):
+    if type(self._filters) is not dict:
+      raise BadRequest('The filters must be wrapped in a dictionary')
+      
     default = {
       "tm":"3-screener",
       "r":"Webpage#1350",
