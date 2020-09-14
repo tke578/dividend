@@ -6,6 +6,7 @@
 [![PyPI version](https://badge.fury.io/py/dividend.svg)](https://badge.fury.io/py/dividend)
 [![Python version](https://img.shields.io/badge/Python-3.6-blue.svg)](https://shields.io/)
 [![Downloads](https://pepy.tech/badge/dividend)](https://pepy.tech/project/dividend)
+[![HitCount](http://hits.dwyl.com/tke578/dividend.svg)](http://hits.dwyl.com/tke578/dividend)
 
 Installation
 -----
